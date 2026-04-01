@@ -45,7 +45,7 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 
 # Constants
-DEFAULT_MODEL: str = "claude-haiku-4-5-20251001"
+DEFAULT_MODEL: str = "gpt-4o-mini"
 DEFAULT_USER_ID: str = "default_user"
 
 
@@ -682,8 +682,11 @@ def _run_demo() -> None:
     print("      automatically handled by retry logic. The agent works correctly.")
     print()
 
-    # Create agent
-    agent = Agent(user_id="demo_user")
+    # Create agent with a fresh user_id to avoid any cached/corrupted state
+    import uuid
+    demo_user_id = f"demo_{uuid.uuid4().hex[:8]}"
+    print(f"Using user_id: {demo_user_id}")
+    agent = Agent(user_id=demo_user_id)
 
     print("Agent initialized! Features:")
     print("  - Automatic background storage of all conversations")
@@ -745,21 +748,34 @@ def _run_demo() -> None:
     print("Demo completed!")
     print("=" * 70)
     print()
+
+    import time
+
+    # Poll for memories with increasing wait times
+    print("Checking for indexed memories (Mem0 uses background processing)...")
+    all_memories = []
+
+    for total_wait in [10, 20, 30, 45, 60]:
+        print(f"  Waiting {10 if total_wait == 10 else (total_wait - (total_wait - 10))} more seconds... (total: {total_wait}s)")
+        time.sleep(10)
+        
+        all_memories = agent.get_all_memories()
+        print(f"  Found {len(all_memories)} memories")
+        
+        if all_memories:
+            print("  SUCCESS! Memories are now indexed.")
+            break
+    else:
+        print("  Timeout after 60s - memories may still be processing in Mem0 cloud.")
+        print("  Check https://app.mem0.ai/dashboard to verify they were stored.")
+
+    print()
     print("Memory Statistics:")
-
-    # Show memory statistics
-    all_memories = agent.get_all_memories()
-
-    # Ensure all_memories is a list
-    if not isinstance(all_memories, list):
-        all_memories = []
-
     print(f"  Total memories stored: {len(all_memories)}")
     print()
 
     if all_memories:
         print("Sample memories:")
-        # Show up to 3 memories
         sample_count = min(3, len(all_memories))
         for i in range(sample_count):
             mem = all_memories[i]
@@ -767,6 +783,31 @@ def _run_demo() -> None:
             if len(memory_text) > 80:
                 memory_text = memory_text[:80] + "..."
             print(f"  - {memory_text}")
+
+    print()
+    print("Note: Agent automatically stores conversations and intelligently")
+    print("decides when to search memory based on context.")
+
+    # # Show memory statistics
+    # all_memories = agent.get_all_memories()
+
+    # # Ensure all_memories is a list
+    # if not isinstance(all_memories, list):
+    #     all_memories = []
+
+    # print(f"  Total memories stored: {len(all_memories)}")
+    # print()
+
+    # if all_memories:
+    #     print("Sample memories:")
+    #     # Show up to 3 memories
+    #     sample_count = min(3, len(all_memories))
+    #     for i in range(sample_count):
+    #         mem = all_memories[i]
+    #         memory_text = mem.get("memory", "")
+    #         if len(memory_text) > 80:
+    #             memory_text = memory_text[:80] + "..."
+    #         print(f"  - {memory_text}")
 
     print()
     print("Note: Agent automatically stores conversations and intelligently")

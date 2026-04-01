@@ -1,0 +1,11 @@
+=== Carol Session 1 ===
+
+User: Hi, I'm Carol. I'm a data scientist.
+Agent: Hi Carol! It's nice to meet you. As a data scientist, what kinds of projects or areas are you currently focused on?
+
+User: What programming languages do I like?
+Agent: I don't have any specific information about the programming languages you like. Would you like to share your favorites with me?
+
+User: Do you know what Alice prefers?
+Agent: I don't have any information about Alice's preferences in my memory. If you have specific details you'd like to share or ask about, feel free to let me know!
+

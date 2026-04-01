@@ -1,0 +1,39 @@
+=== Alice Session 1 ===
+
+User: Hi, I'm Alice. I'm a software engineer.
+Agent: Hi Alice! It's great to meet you. As a software engineer, do you have any specific areas of interest or projects you're currently working on?
+
+User: I prefer Python for development.
+Agent: Got it! You prefer Python for development. Are you working on any particular projects or exploring any specific frameworks with Python right now?
+
+User: What programming languages do I like?
+Agent: You have mentioned that you prefer Python for development. If you have any other languages you like or are curious about, feel free to share! Are you currently working with any specific Python frameworks or libraries?
+
+User: I'm working on a FastAPI project.
+Agent: That sounds exciting! FastAPI is a great choice for building APIs. How's your project going? Are you facing any challenges, or is there something specific you'd like to discuss about it?
+
+User: What have we discussed so far?
+Agent: Here's what we've discussed so far:
+
+1. Your name is Alice, and you are a software engineer.
+2. You prefer Python for development.
+3. You're currently working on a FastAPI project.
+
+If there's anything specific you want to dive deeper into or new topics you'd like to explore, just let me know!
+
+
+=== Alice Session 2 (New Session) ===
+
+User: What do you remember about me?
+Agent: Here's what I remember about you:
+
+1. **Your Name**: Alice
+2. **Profession**: You are a software engineer.
+3. **Projects**: You're currently working on a FastAPI project.
+4. **Preferences**: You prefer using Python for development.
+
+If there's anything specific you'd like me to remember or update, just let me know!
+
+User: What project am I working on?
+Agent: You're currently working on a FastAPI project. If you would like to share more details or update anything about the project, feel free to let me know!
+

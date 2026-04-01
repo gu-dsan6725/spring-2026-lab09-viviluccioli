@@ -66,63 +66,26 @@ Examples:
 
     all_entries = []
 
-    # Get all users/runs from Mem0 to find run_ids
-    print("Getting all runs from Mem0...")
-    try:
-        users_data = client.users()
-        all_runs_info = users_data.get("results", [])
-        print(f"  Total entities: {len(all_runs_info)}")
-    except Exception as e:
-        print(f"  Error getting users: {e}")
-        all_runs_info = []
-
     for user_id in users_to_query:
         print(f"\nFetching memories for user_id: {user_id}...")
 
-        # Find all run_ids for this user
-        # Runs are typically named: user_id-session-N
-        user_runs = [r["name"] for r in all_runs_info
-                    if r.get("type") == "run" and r["name"].startswith(user_id + "-")]
+        try:
+            response = client.get_all(filters={"user_id": user_id}, version="v2")
+            if isinstance(response, dict):
+                memories = response.get("results", response.get("memories", []))
+            else:
+                memories = response if isinstance(response, list) else []
 
-        print(f"  Found {len(user_runs)} runs: {user_runs}")
+            print(f"  Found {len(memories)} memories")
 
-        # Query memories from each run
-        user_memories = []
-        for run_id in user_runs:
-            try:
-                response = client.get_all(filters={"run_id": run_id})
-                memories = response.get("results", [])
+            for mem in memories:
+                mem["_queried_user_id"] = user_id
+                all_entries.append(mem)
 
-                # Always print the result for each run
-                print(f"    Run '{run_id}': {len(memories)} memories")
-
-                if memories:
-                    for mem in memories:
-                        mem["_queried_user_id"] = user_id  # Add for reference
-                        mem["_queried_run_id"] = run_id  # Add run_id for reference
-                        user_memories.append(mem)
-            except Exception as e:
-                print(f"    Run '{run_id}': Error - {e}")
-
-        # Fallback: try direct user_id query (may not work but worth trying)
-        if not user_memories:
-            print(f"  Trying direct user_id query as fallback...")
-            try:
-                response = client.get_all(filters={"user_id": user_id})
-                memories = response.get("results", [])
-                if memories:
-                    print(f"    Found {len(memories)} memories via user_id")
-                    for mem in memories:
-                        mem["_queried_user_id"] = user_id
-                        user_memories.append(mem)
-            except Exception as e:
-                print(f"    Error: {e}")
-
-        if user_memories:
-            print(f"  Total: {len(user_memories)} memories for {user_id}")
-            all_entries.extend(user_memories)
-        else:
-            print(f"  No memories found for {user_id}")
+            if not memories:
+                print(f"  No memories found for {user_id}")
+        except Exception as e:
+            print(f"  Error fetching memories for {user_id}: {e}")
 
     print(f"\n{'='*70}")
     print(f"Total entries retrieved: {len(all_entries)}")

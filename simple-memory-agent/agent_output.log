@@ -1,0 +1,272 @@
+2026-03-31 22:42:33,112,p58838,{agent.py:432},INFO,Initializing Agent - user: demo_917878d4, agent: memory-agent, session: 3a7edea7
+2026-03-31 22:42:33,113,p58838,{memory_manager.py:142},INFO,Initializing multi-tenant MemoryManager with Mem0 cloud platform
+2026-03-31 22:42:33,565,p58838,{memory_manager.py:147},INFO,Mem0 cloud client initialized successfully
+2026-03-31 22:42:33,565,p58838,{agent.py:452},INFO,Memory manager initialized for multi-tenant operation
+2026-03-31 22:42:33,567,p58838,{agent.py:167},INFO,Created search_memory tool
+2026-03-31 22:42:33,568,p58838,{agent.py:239},INFO,Created insert_memory tool
+2026-03-31 22:42:33,568,p58838,{agent.py:320},INFO,Created web_search tool
+2026-03-31 22:42:33,569,p58838,{agent.py:480},INFO,Initialized Agent with model gpt-4o-mini and 3 tools (2 memory + 1 web search)
+2026-03-31 22:42:33,569,p58838,{agent.py:512},INFO,Processing user input (length: 72 chars)
+2026-03-31 22:42:33,569,p58838,{metrics.py:557},INFO,Creating Strands MetricsClient
+[92m22:42:33 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:33,581,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+/Users/vivianaluccioli/Dropbox/DSAN6725-GenAI/labs/lab09/.venv/lib/python3.12/site-packages/litellm/litellm_core_utils/model_response_utils.py:195: PydanticDeprecatedSince211: Accessing the 'model_computed_fields' attribute on the instance is deprecated. Instead, you should access this attribute from the model class. Deprecated in Pydantic V2.11 to be removed in V3.0.
+  or callable(getattr(delta, attr_name))
+/Users/vivianaluccioli/Dropbox/DSAN6725-GenAI/labs/lab09/.venv/lib/python3.12/site-packages/litellm/litellm_core_utils/model_response_utils.py:195: PydanticDeprecatedSince211: Accessing the 'model_fields' attribute on the instance is deprecated. Instead, you should access this attribute from the model class. Deprecated in Pydantic V2.11 to be removed in V3.0.
+  or callable(getattr(delta, attr_name))
+/Users/vivianaluccioli/Dropbox/DSAN6725-GenAI/labs/lab09/.venv/lib/python3.12/site-packages/litellm/litellm_core_utils/model_response_utils.py:153: PydanticDeprecatedSince211: Accessing the 'model_computed_fields' attribute on the instance is deprecated. Instead, you should access this attribute from the model class. Deprecated in Pydantic V2.11 to be removed in V3.0.
+  or callable(getattr(choice, attr_name))
+/Users/vivianaluccioli/Dropbox/DSAN6725-GenAI/labs/lab09/.venv/lib/python3.12/site-packages/litellm/litellm_core_utils/model_response_utils.py:153: PydanticDeprecatedSince211: Accessing the 'model_fields' attribute on the instance is deprecated. Instead, you should access this attribute from the model class. Deprecated in Pydantic V2.11 to be removed in V3.0.
+  or callable(getattr(choice, attr_name))
+2026-03-31 22:42:34,962,p58838,{agent.py:206},INFO,[TOOL INVOKED] insert_memory called with content='User's name is Alice and she is a software engineer specializing in Python....', metadata=None, user_id=demo_917878d4, run_id=3a7edea7
+2026-03-31 22:42:34,962,p58838,{agent.py:208},INFO,Inserting explicit memory: 'User's name is Alice and she is a software engineer specializing in Python....'
+2026-03-31 22:42:34,962,p58838,{memory_manager.py:190},INFO,Inserting memory for user=demo_917878d4, agent=memory-agent, session=3a7edea7: 'User's name is Alice and she is a software engineer specializing in Python....'
+2026-03-31 22:42:35,776,p58838,{memory_manager.py:210},INFO,Memory stored for user=demo_917878d4 with context (agent=memory-agent, session=3a7edea7)
+2026-03-31 22:42:35,776,p58838,{memory_manager.py:220},INFO,Memory inserted successfully
+2026-03-31 22:42:35,776,p58838,{agent.py:226},INFO,Successfully inserted memory
+[92m22:42:35 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:35,777,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:37,344,p58838,{agent.py:521},INFO,Received response (length: 146 chars)
+2026-03-31 22:42:37,824,p58838,{agent.py:512},INFO,Processing user input (length: 61 chars)
+[92m22:42:37 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:37,825,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:38,640,p58838,{agent.py:206},INFO,[TOOL INVOKED] insert_memory called with content='Alice is working on a machine learning project using scikit-learn....', metadata=None, user_id=demo_917878d4, run_id=3a7edea7
+2026-03-31 22:42:38,640,p58838,{agent.py:208},INFO,Inserting explicit memory: 'Alice is working on a machine learning project using scikit-learn....'
+2026-03-31 22:42:38,640,p58838,{memory_manager.py:190},INFO,Inserting memory for user=demo_917878d4, agent=memory-agent, session=3a7edea7: 'Alice is working on a machine learning project using scikit-learn....'
+2026-03-31 22:42:39,053,p58838,{memory_manager.py:210},INFO,Memory stored for user=demo_917878d4 with context (agent=memory-agent, session=3a7edea7)
+2026-03-31 22:42:39,053,p58838,{memory_manager.py:220},INFO,Memory inserted successfully
+2026-03-31 22:42:39,053,p58838,{agent.py:226},INFO,Successfully inserted memory
+[92m22:42:39 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:39,054,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:39,900,p58838,{agent.py:521},INFO,Received response (length: 170 chars)
+2026-03-31 22:42:40,384,p58838,{agent.py:512},INFO,Processing user input (length: 30 chars)
+[92m22:42:40 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:40,385,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:40,960,p58838,{agent.py:119},INFO,[TOOL INVOKED] search_memory called with query='name and occupation', limit=1, user_id=demo_917878d4, run_id=3a7edea7
+2026-03-31 22:42:40,960,p58838,{agent.py:127},INFO,Searching memories for: 'name and occupation' (limit=1)
+2026-03-31 22:42:40,960,p58838,{memory_manager.py:283},INFO,Searching memories for user=demo_917878d4: 'name and occupation' (limit=1, searching across ALL sessions)
+2026-03-31 22:42:41,219,p58838,{memory_manager.py:331},INFO,Found 1 relevant memories
+2026-03-31 22:42:41,219,p58838,{agent.py:154},INFO,Found 1 relevant memories
+[92m22:42:41 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:41,220,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:42,335,p58838,{agent.py:521},INFO,Received response (length: 166 chars)
+2026-03-31 22:42:42,781,p58838,{agent.py:512},INFO,Processing user input (length: 102 chars)
+[92m22:42:42 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:42,782,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:44,154,p58838,{agent.py:206},INFO,[TOOL INVOKED] insert_memory called with content='Alice's favorite programming language is Python and she prefers clean, maintainable code....', metadata=None, user_id=demo_917878d4, run_id=3a7edea7
+2026-03-31 22:42:44,154,p58838,{agent.py:208},INFO,Inserting explicit memory: 'Alice's favorite programming language is Python and she prefers clean, maintainable code....'
+2026-03-31 22:42:44,154,p58838,{memory_manager.py:190},INFO,Inserting memory for user=demo_917878d4, agent=memory-agent, session=3a7edea7: 'Alice's favorite programming language is Python and she prefers clean, maintainable code....'
+2026-03-31 22:42:44,587,p58838,{memory_manager.py:210},INFO,Memory stored for user=demo_917878d4 with context (agent=memory-agent, session=3a7edea7)
+2026-03-31 22:42:44,587,p58838,{memory_manager.py:220},INFO,Memory inserted successfully
+2026-03-31 22:42:44,587,p58838,{agent.py:226},INFO,Successfully inserted memory
+[92m22:42:44 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:44,588,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:45,734,p58838,{agent.py:521},INFO,Received response (length: 219 chars)
+2026-03-31 22:42:46,123,p58838,{agent.py:512},INFO,Processing user input (length: 48 chars)
+[92m22:42:46 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:46,124,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:46,792,p58838,{agent.py:119},INFO,[TOOL INVOKED] search_memory called with query='coding preferences', limit=1, user_id=demo_917878d4, run_id=3a7edea7
+2026-03-31 22:42:46,792,p58838,{agent.py:127},INFO,Searching memories for: 'coding preferences' (limit=1)
+2026-03-31 22:42:46,792,p58838,{memory_manager.py:283},INFO,Searching memories for user=demo_917878d4: 'coding preferences' (limit=1, searching across ALL sessions)
+2026-03-31 22:42:47,077,p58838,{memory_manager.py:331},INFO,Found 1 relevant memories
+2026-03-31 22:42:47,077,p58838,{agent.py:154},INFO,Found 1 relevant memories
+[92m22:42:47 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:47,078,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:48,379,p58838,{agent.py:521},INFO,Received response (length: 233 chars)
+2026-03-31 22:42:48,884,p58838,{agent.py:512},INFO,Processing user input (length: 30 chars)
+[92m22:42:48 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:48,885,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:59,090,p58838,{agent.py:521},INFO,Received response (length: 2722 chars)
+2026-03-31 22:42:59,939,p58838,{agent.py:512},INFO,Processing user input (length: 35 chars)
+[92m22:42:59 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:42:59,940,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:43:00,787,p58838,{agent.py:119},INFO,[TOOL INVOKED] search_memory called with query='machine learning project scikit-learn', limit=1, user_id=demo_917878d4, run_id=3a7edea7
+2026-03-31 22:43:00,787,p58838,{agent.py:127},INFO,Searching memories for: 'machine learning project scikit-learn' (limit=1)
+2026-03-31 22:43:00,787,p58838,{memory_manager.py:283},INFO,Searching memories for user=demo_917878d4: 'machine learning project scikit-learn' (limit=1, searching across ALL sessions)
+2026-03-31 22:43:01,171,p58838,{memory_manager.py:331},INFO,Found 2 relevant memories
+2026-03-31 22:43:01,171,p58838,{agent.py:154},INFO,Found 2 relevant memories
+[92m22:43:01 - LiteLLM:INFO[0m: utils.py:3932 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:43:01,173,p58838,{utils.py:3932},INFO,
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2026-03-31 22:43:02,345,p58838,{agent.py:521},INFO,Received response (length: 203 chars)
+2026-03-31 22:43:12,828,p58838,{memory_manager.py:424},INFO,Retrieving all memories for user=demo_917878d4
+2026-03-31 22:43:13,287,p58838,{memory_manager.py:438},INFO,Retrieved 2 total memories for user=demo_917878d4
+2026-03-31 22:43:13,287,p58838,{agent.py:625},INFO,Retrieved 2 memories
+======================================================================
+Memory Agent Demo - Mem0 + Strands + LiteLLM
+======================================================================
+
+Initializing agent with semantic memory...
+
+NOTE: You may see 'tool_use_failed' ValueError messages during execution.
+      These are harmless warnings from LiteLLM/Groq integration and are
+      automatically handled by retry logic. The agent works correctly.
+
+Using user_id: demo_917878d4
+Agent initialized! Features:
+  - Automatic background storage of all conversations
+  - Semantic search across conversation history
+  - Explicit memory insertion for important facts
+  - Web search for current information (DuckDuckGo)
+  - Qdrant vector database with HuggingFace embeddings
+
+
+──────────────────────────────────────────────────────────────────────
+Turn 1: 1. Introduction
+──────────────────────────────────────────────────────────────────────
+User: Hi! My name is Alice and I'm a software engineer specializing in Python.
+
+
+Tool #1: insert_memory
+Hi Alice! It's great to meet you. As a Python specialist, do you have any specific projects or areas you're currently working on or interested in?Assistant: Hi Alice! It's great to meet you. As a Python specialist, do you have any specific projects or areas you're currently working on or interested in?
+
+──────────────────────────────────────────────────────────────────────
+Turn 2: 2. Share project info
+──────────────────────────────────────────────────────────────────────
+User: I'm working on a machine learning project using scikit-learn.
+
+
+Tool #2: insert_memory
+That sounds exciting! Machine learning with scikit-learn offers a lot of possibilities. Are you focusing on a particular type of model or problem domain for your project?Assistant: That sounds exciting! Machine learning with scikit-learn offers a lot of possibilities. Are you focusing on a particular type of model or problem domain for your project?
+
+──────────────────────────────────────────────────────────────────────
+Turn 3: 3. Memory recall (should search automatically)
+──────────────────────────────────────────────────────────────────────
+User: What's my name and occupation?
+
+
+Tool #3: search_memory
+Your name is Alice, and you are a software engineer specializing in Python. If there's anything specific you'd like to discuss or ask about, feel free to let me know!Assistant: Your name is Alice, and you are a software engineer specializing in Python. If there's anything specific you'd like to discuss or ask about, feel free to let me know!
+
+──────────────────────────────────────────────────────────────────────
+Turn 4: 4. Explicit memory request
+──────────────────────────────────────────────────────────────────────
+User: Please remember that my favorite programming language is Python and I prefer clean, maintainable code.
+
+
+Tool #4: insert_memory
+Got it! I'll remember that your favorite programming language is Python, and you prefer clean, maintainable code. If you have any specific coding practices or tools you like to use for that, I'd love to hear about them!Assistant: Got it! I'll remember that your favorite programming language is Python, and you prefer clean, maintainable code. If you have any specific coding practices or tools you like to use for that, I'd love to hear about them!
+
+──────────────────────────────────────────────────────────────────────
+Turn 5: 5. Retrieve preferences (should search memory)
+──────────────────────────────────────────────────────────────────────
+User: What are my preferences when it comes to coding?
+
+
+Tool #5: search_memory
+Your preference is for clean, maintainable code, and your favorite programming language is Python. If there are any additional preferences or practices you'd like me to remember or if you want to elaborate on these, just let me know!Assistant: Your preference is for clean, maintainable code, and your favorite programming language is Python. If there are any additional preferences or practices you'd like me to remember or if you want to elaborate on these, just let me know!
+
+──────────────────────────────────────────────────────────────────────
+Turn 6: 6. New topic (no memory search needed)
+──────────────────────────────────────────────────────────────────────
+User: Tell me about neural networks.
+
+Neural networks are a class of machine learning algorithms inspired by the structure and function of the human brain. They consist of interconnected groups of artificial neurons that process data in layers. Here are some key components and concepts related to neural networks:
+
+1. **Structure**:
+   - **Neurons**: The basic units of a neural network that take inputs, apply a weight, add a bias, and pass the result through an activation function.
+   - **Layers**: 
+     - **Input Layer**: The first layer that receives the input features.
+     - **Hidden Layers**: One or more intermediate layers where computations occur. The complexity of the model typically increases with more hidden layers.
+     - **Output Layer**: The final layer that produces the output predictions.
+
+2. **Activation Functions**: These functions determine whether a neuron should be activated or not. Common activation functions include:
+   - **Sigmoid**: Outputs values between 0 and 1.
+   - **ReLU (Rectified Linear Unit)**: Outputs 0 for negative inputs and the input value for positive inputs.
+   - **Softmax**: Often used in the output layer for multi-class classification tasks to produce probabilities.
+
+3. **Learning Process**: 
+   - **Forward Propagation**: The process of passing inputs through the network to generate outputs.
+   - **Loss Function**: A measure of how well the predicted outputs match the actual targets. The goal is to minimize this loss.
+   - **Backpropagation**: The method used to update the weights of the network based on the loss calculated during forward propagation. It involves calculating gradients and adjusting weights accordingly.
+
+4. **Training**: Neural networks learn from data through a process called training, which involves feeding the network input-output pairs multiple times and adjusting the weights to minimize the error.
+
+5. **Types of Neural Networks**:
+   - **Feedforward Neural Networks**: Basic type where connections between nodes do not form cycles. Data flows in one direction from input to output.
+   - **Convolutional Neural Networks (CNNs)**: Primarily used in image processing, leveraging convolutional layers to capture spatial hierarchies in images.
+   - **Recurrent Neural Networks (RNNs)**: Suitable for sequential data like time series or text. They have connections that loop back on themselves, allowing them to remember previous inputs.
+
+Neural networks have applications in various fields, including image and speech recognition, natural language processing, game playing, and more. They can model complex patterns in data but also require significant amounts of training data and computational resources. Let me know if you want to delve further into any specific aspect!Assistant: Neural networks are a class of machine learning algorithms inspired by the structure and function of the human brain. They consist of interconnected groups of artificial neurons that process data in layers. Here are some key components and concepts related to neural networks:
+
+1. **Structure**:
+   - **Neurons**: The basic units of a neural network that take inputs, apply a weight, add a bias, and pass the result through an activation function.
+   - **Layers**: 
+     - **Input Layer**: The first layer that receives the input features.
+     - **Hidden Layers**: One or more intermediate layers where computations occur. The complexity of the model typically increases with more hidden layers.
+     - **Output Layer**: The final layer that produces the output predictions.
+
+2. **Activation Functions**: These functions determine whether a neuron should be activated or not. Common activation functions include:
+   - **Sigmoid**: Outputs values between 0 and 1.
+   - **ReLU (Rectified Linear Unit)**: Outputs 0 for negative inputs and the input value for positive inputs.
+   - **Softmax**: Often used in the output layer for multi-class classification tasks to produce probabilities.
+
+3. **Learning Process**: 
+   - **Forward Propagation**: The process of passing inputs through the network to generate outputs.
+   - **Loss Function**: A measure of how well the predicted outputs match the actual targets. The goal is to minimize this loss.
+   - **Backpropagation**: The method used to update the weights of the network based on the loss calculated during forward propagation. It involves calculating gradients and adjusting weights accordingly.
+
+4. **Training**: Neural networks learn from data through a process called training, which involves feeding the network input-output pairs multiple times and adjusting the weights to minimize the error.
+
+5. **Types of Neural Networks**:
+   - **Feedforward Neural Networks**: Basic type where connections between nodes do not form cycles. Data flows in one direction from input to output.
+   - **Convolutional Neural Networks (CNNs)**: Primarily used in image processing, leveraging convolutional layers to capture spatial hierarchies in images.
+   - **Recurrent Neural Networks (RNNs)**: Suitable for sequential data like time series or text. They have connections that loop back on themselves, allowing them to remember previous inputs.
+
+Neural networks have applications in various fields, including image and speech recognition, natural language processing, game playing, and more. They can model complex patterns in data but also require significant amounts of training data and computational resources. Let me know if you want to delve further into any specific aspect!
+
+──────────────────────────────────────────────────────────────────────
+Turn 7: 7. Recall previous context (should search memory)
+──────────────────────────────────────────────────────────────────────
+User: What project did I mention earlier?
+
+
+Tool #6: search_memory
+You mentioned that you are working on a machine learning project using scikit-learn. If you have any specific questions about the project or if you'd like to share more details, feel free to let me know!Assistant: You mentioned that you are working on a machine learning project using scikit-learn. If you have any specific questions about the project or if you'd like to share more details, feel free to let me know!
+
+======================================================================
+Demo completed!
+======================================================================
+
+Checking for indexed memories (Mem0 uses background processing)...
+  Waiting 10 more seconds... (total: 10s)
+  Found 2 memories
+  SUCCESS! Memories are now indexed.
+
+Memory Statistics:
+  Total memories stored: 2
+
+Sample memories:
+  - Alice is a software engineer specializing in Python, her favorite programming la...
+  - Alice is working on a machine learning project using scikit-learn.
+
+Note: Agent automatically stores conversations and intelligently
+decides when to search memory based on context.
+
+Note: Agent automatically stores conversations and intelligently
+decides when to search memory based on context.
