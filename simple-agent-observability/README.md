@@ -8,7 +8,7 @@ This lab showcases a simple AI agent that:
 - Uses Strands agent framework
 - Provides DuckDuckGo web search capability
 - Implements full observability using Braintrust and OpenTelemetry
-- Uses Anthropic Claude 3 Haiku
+- Uses either OpenAI or Anthropic models
 
 ## Architecture
 
@@ -16,19 +16,24 @@ The agent demonstrates modern AI application patterns:
 - **Agent Framework**: Strands for orchestration and tool calling
 - **Tools**: DuckDuckGo web search
 - **Observability**: Braintrust with OpenTelemetry for tracing
-- **Model**: Claude 3 Haiku
+- **Model**: OpenAI or Anthropic via Strands
 
 See [architecture.md](architecture.md) for detailed architecture information about observability and OpenTelemetry.
 
 ## Prerequisites
 
 - Python 3.11+
-- Anthropic API key (sign up at [https://console.anthropic.com/](https://console.anthropic.com/))
+- OpenAI API key or Anthropic API key
 - Braintrust API key (FREE, no credit card required - sign up at [https://www.braintrust.dev/](https://www.braintrust.dev/))
 
 ## Getting Started
 
 ### 1. Get Your API Keys
+
+#### OpenAI API Key
+1. Visit [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+2. Sign up or log in
+3. Create a new API key
 
 #### Anthropic API Key
 1. Visit [https://console.anthropic.com/](https://console.anthropic.com/)
@@ -55,28 +60,36 @@ cp .env.example .env
 Edit `.env` and configure your API keys and project:
 
 ```bash
+OPENAI_API_KEY=your-openai-api-key-here
 ANTHROPIC_API_KEY=your-anthropic-api-key-here
 BRAINTRUST_API_KEY=your-braintrust-api-key-here
-BRAINTRUST_PROJECT=project_name:your-project-name-here
+BRAINTRUST_PARENT=project_name:your-project-name-here
+MCP_SERVER_URL=https://mcp.context7.com/mcp
 ```
 
 **Important Configuration Notes:**
 
-1. **BRAINTRUST_PROJECT Format**: Must use `project_name:YourProjectName` format
+1. **Braintrust Parent Format**: Use `BRAINTRUST_PARENT=project_name:YourProjectName`
    - The project name can be anything relevant to your agent
-   - Example: `project_name:simple-agent-observability`
-   - Example: `project_name:dsan6725-my-cool-final-project`
+   - Example: `BRAINTRUST_PARENT=project_name:simple-agent-observability`
+   - Example: `BRAINTRUST_PARENT=project_name:dsan6725-my-cool-final-project`
+   - Backward-compatible alias: `BRAINTRUST_PROJECT`
+   - If you set `BRAINTRUST_PROJECT=DSAN6725`, the app will normalize it to `project_name:DSAN6725`
 
 2. **Grouping Multiple Agents**: If you have multiple agents as part of a bigger project, use the same project name for all of them
    - All agents will send traces to the same Braintrust project
    - This creates one top-level grouping for all related agents
    - Example: Three agents for a course project could all use:
-     - Agent 1: `BRAINTRUST_PROJECT=project_name:dsan6725-final-project`
-     - Agent 2: `BRAINTRUST_PROJECT=project_name:dsan6725-final-project`
-     - Agent 3: `BRAINTRUST_PROJECT=project_name:dsan6725-final-project`
+     - Agent 1: `BRAINTRUST_PARENT=project_name:dsan6725-final-project`
+     - Agent 2: `BRAINTRUST_PARENT=project_name:dsan6725-final-project`
+     - Agent 3: `BRAINTRUST_PARENT=project_name:dsan6725-final-project`
    - All traces appear in one "dsan6725-final-project" project in Braintrust
 
 3. **Project Name Matching**: The project name you specify will be auto-created in Braintrust if it doesn't exist, or traces will be sent to an existing project with that name
+
+4. **Model Selection**: The app prefers `OPENAI_API_KEY` when present, otherwise it uses `ANTHROPIC_API_KEY`
+
+5. **MCP Server**: `MCP_SERVER_URL` is optional and defaults to Context7 for the Problem 2 MCP integration
 
 ### 3. Install Dependencies
 
@@ -139,6 +152,7 @@ Braintrust provides comprehensive observability for your AI agent:
 
 **Troubleshooting**: If traces don't appear:
 - Verify `BRAINTRUST_PROJECT` uses the correct format: `project_name:YourProjectName`
+- Prefer `BRAINTRUST_PARENT`; `BRAINTRUST_PROJECT` is kept as a compatibility alias
 - Check that the project name exactly matches your Braintrust project name (case-sensitive)
 - Ensure `BRAINTRUST_API_KEY` is valid
 - Wait 10-30 seconds for traces to appear after running the agent
@@ -224,7 +238,8 @@ cat .env
 Verify your Braintrust API key and project name:
 ```bash
 echo $BRAINTRUST_API_KEY
-echo $BRAINTRUST_PROJECT_NAME
+echo $BRAINTRUST_PARENT
+echo $BRAINTRUST_PROJECT
 ```
 
 ### Tool Calls Failing
@@ -242,6 +257,7 @@ If you make too many requests quickly, DuckDuckGo may temporarily rate limit you
 - [OpenTelemetry GenAI Semantics](https://opentelemetry.io/docs/specs/semconv/gen-ai/)
 - [DuckDuckGo Search](https://duckduckgo.com/)
 - [Anthropic Claude Documentation](https://docs.anthropic.com/)
+- [OpenAI Documentation](https://platform.openai.com/docs/overview)
 
 ## License
 
